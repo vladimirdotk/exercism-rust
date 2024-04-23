@@ -9,7 +9,7 @@ pub fn annotate(minefield: &[&str]) -> Vec<String> {
             }
 
             // row above
-            if i as i32 - 1 >= 0 {
+            if i as i32 > 0 {
                 handle_row(&mut changes, row, i - 1, j);
             }
 
@@ -32,7 +32,7 @@ pub fn annotate(minefield: &[&str]) -> Vec<String> {
 
         let modified_chr = match chr {
             b' ' => b'1',
-            _ => chr as u8 + 1,
+            _ => chr + 1,
         };
 
         let transformed_row: Vec<u8> = row
