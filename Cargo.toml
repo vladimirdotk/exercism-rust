@@ -1,0 +1,13 @@
+[workspace]
+members = [
+  "clock",
+  "gigasecond",
+  "hello-world",
+  "reverse-string",
+  "anagram",
+  "space-age",
+  "sublist",
+  "minesweeper",
+]
+
+resolver = "2"
