@@ -34,12 +34,12 @@ pub fn is_valid(code: &str) -> bool {
             if counter % 2 == 0 {
                 let mut res = digit * 2;
                 if res > 9 {
-                    res = res - 9;
+                    res -= 9;
                 }
                 return res;
             }
 
-            return digit;
+            digit
         })
         .sum();
 
@@ -47,5 +47,5 @@ pub fn is_valid(code: &str) -> bool {
         return true;
     }
 
-    return false;
+    false
 }

@@ -27,7 +27,7 @@ pub fn frequency(input: &[&str], workers: usize) -> HashMap<char, usize> {
         }
 
         for task in tasks {
-            let _ = task.await.expect("Task failed");
+            task.await.expect("Task failed");
         }
 
         Arc::try_unwrap(result).unwrap().into_inner()
@@ -38,7 +38,7 @@ async fn process_string(s: &str, result: Arc<TokioMutex<HashMap<char, usize>>>) 
     for c in s.chars() {
         if c.is_alphabetic() {
             let c = c.to_lowercase().next().unwrap();
-            print!("{}\n", c);
+            println!("{}", c);
             *result.lock().await.entry(c).or_insert(0) += 1;
         }
     }
